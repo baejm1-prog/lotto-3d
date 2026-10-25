@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta name="naver-site-verification" content="b995683f7248980380158419c866f5fe0c406389" />
   <meta name="google-site-verification" content="UWKORvn0mFMQD324oKh5tnDDvkg7UysRxduHUKZ2Y4c" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -134,6 +133,11 @@
       }
     }
 
+    /* 당첨 대조 일치 공 글로우 효과 */
+    .matched-ball-glow {
+      box-shadow: 0 0 0 3px #10b981, 0 0 16px rgba(16, 185, 129, 0.95) !important;
+    }
+
     /* 번호대별 공식 색상 */
     .ball-yellow { background: radial-gradient(circle at 35% 35%, #fff176, #fbc400 60%, #b78100); color: #1a1a1a; text-shadow: none; }
     .ball-blue   { background: radial-gradient(circle at 35% 35%, #90caf9, #2196f3 60%, #0d47a1); }
@@ -243,7 +247,6 @@
       box-shadow: 0 0 20px rgba(168, 85, 247, 0.3) !important;
     }
 
-    /* 탭 상태 스타일링 */
     .tab-btn {
       transition: all 0.2s ease;
     }
@@ -284,6 +287,19 @@
         <p class="text-xs md:text-sm text-gray-400 mt-1">
             A~E 5게임 연쇄 추첨 후 3회 이상 '핫 넘버'(네온 하이라이트) &amp; 0회 '쿨 넘버' 실시간 분석
         </p>
+
+        <!-- 동행복권 API 최신 당첨 번호 실시간 표시 위젯 -->
+        <section class="w-full mt-4 bg-gray-900/80 border border-amber-500/30 rounded-2xl p-3 shadow-lg">
+            <div class="flex items-center justify-between mb-2">
+                <span id="lottoRoundTitle" class="text-xs font-bold text-amber-400 flex items-center gap-1">
+                    🎉 동행복권 최신 당첨 번호 불러오는 중...
+                </span>
+                <span id="lottoDrawDate" class="text-[11px] text-gray-500 font-mono"></span>
+            </div>
+            <div id="latestWinningBalls" class="flex items-center justify-center gap-1.5 sm:gap-2 min-h-[36px]">
+                <span class="text-xs text-gray-500 italic">API 조회 중...</span>
+            </div>
+        </section>
     </header>
 
     <!-- Google AdSense Slot Placeholder #1 -->
@@ -345,7 +361,6 @@
                 </div>
             </div>
             
-            <!-- Quick Presets -->
             <div class="flex items-center gap-1.5 mb-3 flex-wrap text-[11px]">
                 <span class="text-gray-500 font-medium mr-1">빠른 선택:</span>
                 <button id="presetOdds" class="px-2 py-1 rounded bg-gray-800 hover:bg-gray-700 text-gray-300 border border-gray-700 transition">홀수 제외</button>
@@ -354,9 +369,7 @@
                 <button id="presetLows" class="px-2 py-1 rounded bg-gray-800 hover:bg-gray-700 text-gray-300 border border-gray-700 transition">1~22 제외</button>
             </div>
 
-            <!-- Number Toggle Grid (1~45) -->
             <div id="excludeGrid" class="grid grid-cols-9 sm:grid-cols-15 gap-1.5 justify-items-center">
-                <!-- Dynamically generated 1-45 buttons -->
             </div>
         </section>
 
@@ -368,7 +381,6 @@
                     3D 로또 추첨 결과
                 </h2>
                 
-                <!-- Share & Copy Controls -->
                 <div class="flex items-center gap-2">
                     <button id="copyAllBtn" disabled class="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs flex items-center gap-1 transition disabled:opacity-40 disabled:cursor-not-allowed">
                         <span>📋 전체 복사</span>
@@ -382,16 +394,13 @@
                 </div>
             </div>
 
-            <!-- Games Rows Container -->
             <div id="gamesContainer" class="w-full space-y-2.5">
                 <div class="text-center py-8 text-gray-500 text-sm italic">
                     '1게임 추첨' 또는 '5게임 연속 추첨' 버튼을 누르면 3D 원판이 회전하여 번호를 추출합니다.
                 </div>
             </div>
 
-            <!-- 핫 넘버 (3회 이상) / 쿨 넘버 (0회 미출현) 하단 탭 구분 분석 섹션 -->
             <div id="analysisSection" class="w-full hidden mt-4 pt-4 border-t border-purple-800/40 flex flex-col items-center">
-                <!-- 탭 헤더 버튼 -->
                 <div class="flex items-center gap-2 mb-3 bg-gray-950/80 p-1 rounded-xl border border-gray-800">
                     <button id="tabHotBtn" class="tab-btn active-tab px-3.5 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1 border border-transparent">
                         <span>🔥 핫 넘버 (3회 이상)</span>
@@ -403,19 +412,15 @@
                     </button>
                 </div>
 
-                <!-- 탭 1 Content: 핫 넘버 (3회 이상) -->
                 <div id="tabHotContent" class="w-full flex flex-col items-center">
                     <p class="text-[11px] text-amber-300/80 mb-2">※ 3회 이상 중복 등장한 핫 넘버는 상단 A~E 결과창에 황금빛 네온 테두리로 강조됩니다.</p>
                     <div id="hotNumbersList" class="flex flex-wrap items-center justify-center gap-2.5 min-h-[44px]">
-                        <!-- 핫 넘버 공들이 표시됩니다 -->
                     </div>
                 </div>
 
-                <!-- 탭 2 Content: 미출현 번호 (0회) -->
                 <div id="tabColdContent" class="w-full flex flex-col items-center hidden">
                     <p class="text-[11px] text-cyan-300/80 mb-2">※ 5개 게임(30개 번호) 추첨 동안 한 번도 등장하지 않은 미출현 번호 목록입니다.</p>
                     <div id="coldNumbersList" class="flex flex-wrap items-center justify-center gap-2 min-h-[44px]">
-                        <!-- 미출현 번호 공들이 표시됩니다 -->
                     </div>
                 </div>
             </div>
@@ -470,7 +475,6 @@
                 <button id="clearHistoryBtn" class="text-xs text-gray-500 hover:text-rose-400 transition">기록 전체 삭제</button>
             </div>
             <div id="historyList" class="space-y-3 max-h-48 overflow-y-auto pr-1 text-xs">
-                <!-- Dynamic History items -->
             </div>
         </section>
 
@@ -512,6 +516,81 @@
             }
         }
         setInterval(updateLiveVisitors, 3500);
+
+        // --- Donghaeng Lotto API Integration Engine ---
+        let latestLottoData = null;
+
+        function getLatestDrawNumber() {
+            const startDate = new Date('2002-12-07T20:00:00+09:00');
+            const now = new Date();
+            const diffMs = now - startDate;
+            const diffWeeks = Math.floor(diffMs / (1000 * 60 * 60 * 24 * 7));
+            return diffWeeks + 1;
+        }
+
+        async function fetchLatestLottoWinningNumbers() {
+            const roundNo = getLatestDrawNumber();
+            const targetUrl = `https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=${roundNo}`;
+            const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(targetUrl)}`;
+
+            try {
+                const response = await fetch(proxyUrl);
+                if (!response.ok) throw new Error('API 응답 오류');
+                const data = await response.json();
+
+                if (data.returnValue === 'success') {
+                    latestLottoData = data;
+                    renderLottoWidget(data);
+                } else {
+                    // 아직 당첨 발표 전일 경우 이전 회차 재시도
+                    fetchLottoByRound(roundNo - 1);
+                }
+            } catch (err) {
+                fetchLottoByRound(roundNo - 1);
+            }
+        }
+
+        async function fetchLottoByRound(roundNo) {
+            const targetUrl = `https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=${roundNo}`;
+            const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(targetUrl)}`;
+            try {
+                const response = await fetch(proxyUrl);
+                const data = await response.json();
+                if (data.returnValue === 'success') {
+                    latestLottoData = data;
+                    renderLottoWidget(data);
+                }
+            } catch (e) {
+                document.getElementById('lottoRoundTitle').textContent = '⚠️ 최신 당첨 번호 로딩 실패';
+            }
+        }
+
+        function renderLottoWidget(data) {
+            document.getElementById('lottoRoundTitle').textContent = `🎉 동행복권 제 ${data.drwNo}회 당첨 번호`;
+            document.getElementById('lottoDrawDate').textContent = `(${data.drwNoDate} 추첨)`;
+
+            const container = document.getElementById('latestWinningBalls');
+            container.innerHTML = '';
+
+            const numbers = [data.drwtNo1, data.drwtNo2, data.drwtNo3, data.drwtNo4, data.drwtNo5, data.drwtNo6];
+            numbers.forEach(num => {
+                const ball = document.createElement('div');
+                ball.className = `lotto-ball ${getBallColorClass(num)} show text-xs flex items-center justify-center font-bold`;
+                ball.textContent = num < 10 ? `0${num}` : num;
+                container.appendChild(ball);
+            });
+
+            // 보너스 번호 표시
+            const plus = document.createElement('span');
+            plus.className = 'text-amber-400 font-bold text-sm mx-1';
+            plus.textContent = '+';
+            container.appendChild(plus);
+
+            const bonusBall = document.createElement('div');
+            bonusBall.className = `lotto-ball ${getBallColorClass(data.bnusNo)} show text-xs flex items-center justify-center font-bold border-2 border-amber-400`;
+            bonusBall.textContent = data.bnusNo < 10 ? `0${data.bnusNo}` : data.bnusNo;
+            container.appendChild(bonusBall);
+        }
 
         // --- 0. Kakao SDK Setup ---
         const KAKAO_JAVASCRIPT_KEY = 'YOUR_KAKAO_JAVASCRIPT_KEY';
@@ -1173,9 +1252,23 @@
             if (!container) return;
             container.innerHTML = '';
 
+            let winningNumsArr = [];
+            let bonusNum = null;
+            if (latestLottoData) {
+                winningNumsArr = [latestLottoData.drwtNo1, latestLottoData.drwtNo2, latestLottoData.drwtNo3, latestLottoData.drwtNo4, latestLottoData.drwtNo5, latestLottoData.drwtNo6];
+                bonusNum = latestLottoData.bnusNo;
+            }
+
             numbers.forEach((num, index) => {
                 const ball = document.createElement('div');
-                ball.className = `lotto-ball ${getBallColorClass(num)}`;
+                let colorClass = getBallColorClass(num);
+                
+                // 최신 당첨 번호와 일치 여부 대조 하이라이트
+                if (winningNumsArr.includes(num)) {
+                    colorClass += ' matched-ball-glow';
+                }
+
+                ball.className = `lotto-ball ${colorClass}`;
                 if (currentHotNumsSet.has(num)) {
                     ball.classList.add('hot-ball-glow');
                 }
@@ -1421,6 +1514,7 @@
         });
 
         window.addEventListener('DOMContentLoaded', () => {
+            fetchLatestLottoWinningNumbers();
             initKakaoSDK();
             initExcludeGrid();
             drawRoulette();
