@@ -22,237 +22,237 @@
     gtag('config', 'G-XXXXXXXXXX');
   </script>
 
-    <!-- 4. Kakao SDK (카카오링크 공유용) -->
-    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+  <!-- 4. Kakao SDK (카카오링크 공유용) -->
+  <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 
-    <!-- 5. PWA & 모바일 웹앱 메타태그 -->
-    <meta name="theme-color" content="#080c14">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="5게임 무료로또추첨기">
-    <link rel="apple-touch-icon" href="https://my-lotto.vercel.app/icon-192.png">
+  <!-- 5. PWA & 모바일 웹앱 메타태그 -->
+  <meta name="theme-color" content="#080c14">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="5게임 무료로또추첨기">
+  <link rel="apple-touch-icon" href="https://lotto-3d.vercel.app/icon-192.png">
 
-    <!-- 6. Open Graph & Twitter Card 태그 -->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="3D 5게임 연속 무료로또추첨기">
-    <meta property="og:title" content="3D 5게임 연속 무료로또추첨기 | 핫/쿨 번호 분석 & LIVE">
-    <meta property="og:description" content="한 번 클릭으로 A~E 5개 로또 게임을 3D 원판으로 연속 추첨하고, 3회 이상 핫 넘버 네온 강조 및 미출현 쿨 넘버까지 분석합니다.">
-    <meta property="og:image" content="https://my-lotto.vercel.app/og-image.png">
-    <meta property="og:url" content="https://my-lotto.vercel.app/">
+  <!-- 6. Open Graph & Twitter Card 태그 -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="3D 5게임 연속 무료로또추첨기">
+  <meta property="og:title" content="3D 5게임 연속 무료로또추첨기 | 핫/쿨 번호 분석 & LIVE">
+  <meta property="og:description" content="한 번 클릭으로 A~E 5개 로또 게임을 3D 원판으로 연속 추첨하고, 3회 이상 핫 넘버 네온 강조 및 미출현 쿨 넘버까지 분석합니다.">
+  <meta property="og:image" content="https://lotto-3d.vercel.app/og-image.png">
+  <meta property="og:url" content="https://lotto-3d.vercel.app/">
 
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="3D 5게임 연속 무료로또추첨기">
-    <meta name="twitter:description" content="8도 정밀 스냅 3D 원판 5게임 연쇄 로또 번호 추첨 서비스">
-    <meta name="twitter:image" content="https://my-lotto.vercel.app/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="3D 5게임 연속 무료로또추첨기">
+  <meta name="twitter:description" content="8도 정밀 스냅 3D 원판 5게임 연쇄 로또 번호 추첨 서비스">
+  <meta name="twitter:image" content="https://lotto-3d.vercel.app/og-image.png">
 
-    <!-- 7. JSON-LD 구조화 데이터 -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "3D 5게임 연속 무료로또추첨기",
-      "url": "https://my-lotto.vercel.app/",
-      "description": "3D 입체 원판 기반 A~E 5개 로또 게임 연쇄 추첨기 및 핫/쿨 번호 통계 분석 웹 서비스",
-      "applicationCategory": "EntertainmentApplication",
-      "operatingSystem": "All",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "KRW"
+  <!-- 7. JSON-LD 구조화 데이터 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "3D 5게임 연속 무료로또추첨기",
+    "url": "https://lotto-3d.vercel.app/",
+    "description": "3D 입체 원판 기반 A~E 5개 로또 게임 연쇄 추첨기 및 핫/쿨 번호 통계 분석 웹 서비스",
+    "applicationCategory": "EntertainmentApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "KRW"
+    }
+  }
+  </script>
+
+  <!-- Tailwind CSS 및 Pretendard 웹폰트 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+    
+    * {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+      user-select: none;
+    }
+
+    body {
+      background-color: #080c14;
+      color: #f3f4f6;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* 3D 로또 공 스타일링 */
+    .lotto-ball {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: #ffffff;
+      box-shadow: inset -3px -3px 6px rgba(0, 0, 0, 0.45),
+                  inset 3px 3px 6px rgba(255, 255, 255, 0.45),
+                  0 4px 10px rgba(0, 0, 0, 0.6);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transform: scale(0) rotate(-180deg);
+      opacity: 0;
+      position: relative;
+    }
+
+    @media (min-width: 640px) {
+      .lotto-ball {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
       }
     }
-    </script>
 
-    <!-- Tailwind CSS 및 Pretendard 웹폰트 -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
-        
-        * {
-            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-            user-select: none;
-        }
+    .lotto-ball.show {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
 
-        body {
-            background-color: #080c14;
-            color: #f3f4f6;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+    /* 핫 넘버 네온 테두리 하이라이트 효과 */
+    .hot-ball-glow {
+      box-shadow: 0 0 0 3px #fbbf24,
+                  0 0 16px rgba(251, 191, 36, 0.95),
+                  inset -3px -3px 6px rgba(0, 0, 0, 0.45),
+                  inset 3px 3px 6px rgba(255, 255, 255, 0.6) !important;
+      animation: pulseGlow 1.8s infinite alternate;
+    }
 
-        /* 3D 로또 공 스타일링 */
-        .lotto-ball {
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 0.95rem;
-            color: #ffffff;
-            box-shadow: inset -3px -3px 6px rgba(0, 0, 0, 0.45),
-                        inset 3px 3px 6px rgba(255, 255, 255, 0.45),
-                        0 4px 10px rgba(0, 0, 0, 0.6);
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
-            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-            transform: scale(0) rotate(-180deg);
-            opacity: 0;
-            position: relative;
-        }
+    @keyframes pulseGlow {
+      0% {
+        box-shadow: 0 0 0 2px #fbbf24, 0 0 10px rgba(251, 191, 36, 0.8);
+      }
+      100% {
+        box-shadow: 0 0 0 4px #f59e0b, 0 0 22px rgba(245, 158, 11, 1);
+      }
+    }
 
-        @media (min-width: 640px) {
-            .lotto-ball {
-                width: 44px;
-                height: 44px;
-                font-size: 1.1rem;
-            }
-        }
+    /* 번호대별 공식 색상 */
+    .ball-yellow { background: radial-gradient(circle at 35% 35%, #fff176, #fbc400 60%, #b78100); color: #1a1a1a; text-shadow: none; }
+    .ball-blue   { background: radial-gradient(circle at 35% 35%, #90caf9, #2196f3 60%, #0d47a1); }
+    .ball-red    { background: radial-gradient(circle at 35% 35%, #ff8a80, #ff5252 60%, #b71c1c); }
+    .ball-gray   { background: radial-gradient(circle at 35% 35%, #e0e0e0, #9e9e9e 60%, #424242); }
+    .ball-green  { background: radial-gradient(circle at 35% 35%, #aed581, #7cb342 60%, #33691e); }
 
-        .lotto-ball.show {
-            transform: scale(1) rotate(0deg);
-            opacity: 1;
-        }
+    /* 글로우 버튼 */
+    .glow-button {
+      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #d946ef 100%);
+      box-shadow: 0 0 20px rgba(124, 58, 237, 0.45);
+      transition: all 0.25s ease;
+    }
+    .glow-button:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 0 30px rgba(168, 85, 247, 0.75);
+    }
+    .glow-button:active:not(:disabled) {
+      transform: translateY(1px);
+    }
+    .glow-button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      filter: grayscale(0.7);
+    }
 
-        /* 핫 넘버 네온 테두리 하이라이트 효과 */
-        .hot-ball-glow {
-            box-shadow: 0 0 0 3px #fbbf24,
-                        0 0 16px rgba(251, 191, 36, 0.95),
-                        inset -3px -3px 6px rgba(0, 0, 0, 0.45),
-                        inset 3px 3px 6px rgba(255, 255, 255, 0.6) !important;
-            animation: pulseGlow 1.8s infinite alternate;
-        }
+    .glow-button-sub {
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+      border: 1px solid #4338ca;
+      box-shadow: 0 0 15px rgba(67, 56, 202, 0.3);
+      transition: all 0.25s ease;
+    }
+    .glow-button-sub:hover:not(:disabled) {
+      transform: translateY(-2px);
+      background: linear-gradient(135deg, #312e81 0%, #3730a3 100%);
+      box-shadow: 0 0 25px rgba(99, 102, 241, 0.5);
+    }
+    .glow-button-sub:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
 
-        @keyframes pulseGlow {
-            0% {
-                box-shadow: 0 0 0 2px #fbbf24, 0 0 10px rgba(251, 191, 36, 0.8);
-            }
-            100% {
-                box-shadow: 0 0 0 4px #f59e0b, 0 0 22px rgba(245, 158, 11, 1);
-            }
-        }
+    /* 카카오 버튼 */
+    .kakao-button {
+      background: linear-gradient(135deg, #FEE500 0%, #E6D000 100%);
+      color: #191919;
+      box-shadow: 0 0 15px rgba(254, 229, 0, 0.25);
+      transition: all 0.2s ease;
+    }
+    .kakao-button:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 0 25px rgba(254, 229, 0, 0.5);
+    }
+    .kakao-button:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      filter: grayscale(0.6);
+    }
 
-        /* 번호대별 공식 색상 */
-        .ball-yellow { background: radial-gradient(circle at 35% 35%, #fff176, #fbc400 60%, #b78100); color: #1a1a1a; text-shadow: none; }
-        .ball-blue   { background: radial-gradient(circle at 35% 35%, #90caf9, #2196f3 60%, #0d47a1); }
-        .ball-red    { background: radial-gradient(circle at 35% 35%, #ff8a80, #ff5252 60%, #b71c1c); }
-        .ball-gray   { background: radial-gradient(circle at 35% 35%, #e0e0e0, #9e9e9e 60%, #424242); }
-        .ball-green  { background: radial-gradient(circle at 35% 35%, #aed581, #7cb342 60%, #33691e); }
+    /* 제외수 그리드 버튼 */
+    .exclude-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #111827;
+      color: #9ca3af;
+      border: 1px solid #1f2937;
+      transition: all 0.15s ease;
+      cursor: pointer;
+    }
+    .exclude-btn:hover {
+      border-color: #f87171;
+      color: #fca5a5;
+      background-color: #1f1924;
+    }
+    .exclude-btn.excluded {
+      background-color: #881337;
+      color: #fecdd3;
+      border-color: #f43f5e;
+      box-shadow: 0 0 10px rgba(244, 63, 94, 0.4);
+      text-decoration: line-through;
+    }
 
-        /* 글로우 버튼 */
-        .glow-button {
-            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #d946ef 100%);
-            box-shadow: 0 0 20px rgba(124, 58, 237, 0.45);
-            transition: all 0.25s ease;
-        }
-        .glow-button:hover:not(:disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 0 30px rgba(168, 85, 247, 0.75);
-        }
-        .glow-button:active:not(:disabled) {
-            transform: translateY(1px);
-        }
-        .glow-button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            filter: grayscale(0.7);
-        }
+    canvas {
+      filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.9));
+    }
 
-        .glow-button-sub {
-            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
-            border: 1px solid #4338ca;
-            box-shadow: 0 0 15px rgba(67, 56, 202, 0.3);
-            transition: all 0.25s ease;
-        }
-        .glow-button-sub:hover:not(:disabled) {
-            transform: translateY(-2px);
-            background: linear-gradient(135deg, #312e81 0%, #3730a3 100%);
-            box-shadow: 0 0 25px rgba(99, 102, 241, 0.5);
-        }
-        .glow-button-sub:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #090d16;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #222d42;
+      border-radius: 3px;
+    }
 
-        /* 카카오 버튼 */
-        .kakao-button {
-            background: linear-gradient(135deg, #FEE500 0%, #E6D000 100%);
-            color: #191919;
-            box-shadow: 0 0 15px rgba(254, 229, 0, 0.25);
-            transition: all 0.2s ease;
-        }
-        .kakao-button:hover:not(:disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 0 25px rgba(254, 229, 0, 0.5);
-        }
-        .kakao-button:disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-            filter: grayscale(0.6);
-        }
+    .game-row-active {
+      border-color: #a855f7 !important;
+      background-color: rgba(168, 85, 247, 0.12) !important;
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.3) !important;
+    }
 
-        /* 제외수 그리드 버튼 */
-        .exclude-btn {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #111827;
-            color: #9ca3af;
-            border: 1px solid #1f2937;
-            transition: all 0.15s ease;
-            cursor: pointer;
-        }
-        .exclude-btn:hover {
-            border-color: #f87171;
-            color: #fca5a5;
-            background-color: #1f1924;
-        }
-        .exclude-btn.excluded {
-            background-color: #881337;
-            color: #fecdd3;
-            border-color: #f43f5e;
-            box-shadow: 0 0 10px rgba(244, 63, 94, 0.4);
-            text-decoration: line-through;
-        }
-
-        canvas {
-            filter: drop-shadow(0 20px 35px rgba(0, 0, 0, 0.9));
-        }
-
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #090d16;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #222d42;
-            border-radius: 3px;
-        }
-
-        .game-row-active {
-            border-color: #a855f7 !important;
-            background-color: rgba(168, 85, 247, 0.12) !important;
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.3) !important;
-        }
-
-        /* 탭 상태 스타일링 */
-        .tab-btn {
-            transition: all 0.2s ease;
-        }
-        .tab-btn.active-tab {
-            background-color: #374151;
-            color: #f3f4f6;
-            border-color: #6b7280;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-        }
-    </style>
+    /* 탭 상태 스타일링 */
+    .tab-btn {
+      transition: all 0.2s ease;
+    }
+    .tab-btn.active-tab {
+      background-color: #374151;
+      color: #f3f4f6;
+      border-color: #6b7280;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+  </style>
 </head>
 <body class="flex flex-col items-center justify-between p-4 md:p-8">
 
@@ -428,6 +428,40 @@
             </div>
         </aside>
 
+        <!-- 구글 애드센스 승인 대비 1,500자+ 상세 이용 가이드 및 FAQ 아티클 섹션 -->
+        <article class="w-full max-w-2xl bg-gray-900/60 border border-gray-800/80 rounded-2xl p-6 backdrop-blur-md shadow-xl text-gray-300 text-xs sm:text-sm leading-relaxed space-y-4">
+            <h2 class="text-base sm:text-lg font-bold text-white border-b border-gray-800 pb-2 flex items-center gap-2">
+                📌 3D 입체 원판 로또추첨기 상세 이용 가이드 &amp; 확률 분석
+            </h2>
+            <p>
+                본 <strong>3D 5게임 연속 무료로또추첨기</strong>는 웹 표준 암호화 난수 생성 기술과 45분할 정밀 물리 원판 회전 시뮬레이션을 결합하여 기존의 단순한 숫자 나열형 무작위 번호 생성기에서 경험할 수 없었던 직관적이고 다채로운 추첨 시각효과를 제공합니다. 한 번의 클릭으로 로또 복권 구매 단위인 A~E 5개 게임(총 30개 번호)을 연속으로 연쇄 추첨할 수 있으며, 실시간 제외수 필터 및 출현 빈도 통계 기능을 동시에 활용할 수 있습니다.
+            </p>
+            
+            <h3 class="text-sm font-bold text-indigo-300 pt-2">1. 8도 정밀 스냅 및 연쇄 추첨 시스템</h3>
+            <p>
+                로또 6/45 규격에 맞춰 360도 입체 원판을 45개 구역(1개 구역당 정확히 8도)으로 정밀 분할하였습니다. 5게임 연쇄 추첨 버튼을 클릭하면 6개의 독자적인 회전 바늘이 정밀한 감속 물리 곡선(Quintic Easing)을 따라 회전하며 1게임당 6개의 번호를 순차적으로 정확하게 스냅하여 결정합니다.
+            </p>
+
+            <h3 class="text-sm font-bold text-indigo-300 pt-2">2. 핫 넘버(Hot Number) 및 쿨 넘버(Cool Number) 통계 분석</h3>
+            <p>
+                5개 게임 추첨이 모두 완료되면 엔진이 30개 추천 번호의 출현 빈도를 즉시 분석합니다. 
+                <br>&bull; <strong>핫 넘버 (🔥)</strong>: 5개 게임 중 3회 이상 중복으로 추출된 강력 추천 번호로, 결과창에 황금빛 네온 테두리 글로우 효과가 자동 적용됩니다.
+                <br>&bull; <strong>쿨 넘버 (❄️)</strong>: 전체 추첨 동안 0회 출현한 번호들을 모아서 별도 탭으로 제공하여 사용자가 고르게 번호를 조합할 수 있도록 돕습니다.
+            </p>
+
+            <h3 class="text-sm font-bold text-indigo-300 pt-2">자주 묻는 질문 (FAQ)</h3>
+            <div class="space-y-2">
+                <details class="bg-gray-950/80 p-3 rounded-xl border border-gray-800 cursor-pointer">
+                    <summary class="font-bold text-gray-200">Q1. 추첨된 번호의 당첨 확률은 공식 로또와 동일한가요?</summary>
+                    <p class="mt-2 text-xs text-gray-400">네, 본 서비스는 수학적으로 동일한 1/8,145,060 확률 매커니즘을 적용하여 완벽하게 무작위성을 보장합니다.</p>
+                </details>
+                <details class="bg-gray-950/80 p-3 rounded-xl border border-gray-800 cursor-pointer">
+                    <summary class="font-bold text-gray-200">Q2. 제외수를 설정하면 어떻게 동작하나요?</summary>
+                    <p class="mt-2 text-xs text-gray-400">선택한 제외수는 3D 원판 구역에서 즉시 빨간색 ✕ 표시로 비활성화되며, 추첨 알고리즘의 대상 번호군에서 제외되어 나만의 전략 번호를 추출할 수 있습니다.</p>
+                </details>
+            </div>
+        </article>
+
         <!-- Draw History Log -->
         <section class="w-full max-w-2xl bg-gray-900/40 border border-gray-800/60 rounded-2xl p-4">
             <div class="flex items-center justify-between mb-3 px-2">
@@ -459,7 +493,7 @@
 
     <!-- Footer -->
     <footer class="mt-8 text-center text-xs text-gray-600 flex flex-col items-center gap-1">
-        <div>&copy; 3D Precision Lotto Engine &bull; Math Center-Snap System</div>
+        <div>&copy; 2026 3D Precision Lotto Engine &bull; Math Center-Snap System</div>
         <p class="text-[11px] text-gray-700">본 웹앱은 3D 입체 원판으로 1게임 및 5게임 연쇄 추첨 후 핫/쿨 번호를 분석해 주는 100% 무료 서비스입니다.</p>
     </footer>
 
@@ -470,7 +504,6 @@
         const liveVisitorsEl = document.getElementById('liveVisitors');
         
         function updateLiveVisitors() {
-            // Random fluctuation (-2 to +3)
             const change = Math.floor(Math.random() * 6) - 2;
             baseVisitors = Math.max(105, baseVisitors + change);
             if (liveVisitorsEl) {
@@ -502,7 +535,7 @@
         const excludedNumbers = new Set();
         let gamesResults = {}; 
         let isDrawingAll = false;
-        let currentHotNumsSet = new Set(); // Stores 3+ occurrences numbers for neon highlighting
+        let currentHotNumsSet = new Set();
 
         // --- 1. Web Audio API Sound Engine ---
         class SoundEngine {
@@ -597,7 +630,7 @@
         const canvas = document.getElementById('rouletteCanvas');
         const ctx = canvas.getContext('2d');
         const TOTAL_NUMBERS = 45;
-        const SECTOR_DEG = 360 / TOTAL_NUMBERS; // 8 degrees
+        const SECTOR_DEG = 360 / TOTAL_NUMBERS;
 
         const HAND_COLORS = [
             { main: '#ff2a6d', glow: 'rgba(255, 42, 109, 0.9)' },
@@ -655,7 +688,6 @@
 
             ctx.clearRect(0, 0, width, height);
 
-            // Metallic Outer Bevel Ring
             const outerGrad = ctx.createRadialGradient(centerX, centerY, outerRadius * 0.85, centerX, centerY, outerRadius * 1.06);
             outerGrad.addColorStop(0, '#1f2937');
             outerGrad.addColorStop(0.7, '#111827');
@@ -672,14 +704,12 @@
             ctx.fill();
             ctx.restore();
 
-            // Gold Ring Edge
             ctx.beginPath();
             ctx.arc(centerX, centerY, outerRadius, 0, Math.PI * 2);
             ctx.strokeStyle = 'rgba(234, 179, 8, 0.35)';
             ctx.lineWidth = 3;
             ctx.stroke();
 
-            // Draw 45 Sectors
             for (let i = 0; i < TOTAL_NUMBERS; i++) {
                 const num = i + 1;
                 const isExcluded = excludedNumbers.has(num);
@@ -735,7 +765,6 @@
                 ctx.restore();
             }
 
-            // Inner Ring Gradient
             const centerBgGrad = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, innerRadius * 0.85);
             centerBgGrad.addColorStop(0, '#0c1322');
             centerBgGrad.addColorStop(1, '#050811');
@@ -750,12 +779,10 @@
             ctx.lineWidth = 2;
             ctx.stroke();
 
-            // Draw Needles
             hands.forEach((hand) => {
                 drawHand(ctx, centerX, centerY, outerRadius * hand.lengthRatio, hand);
             });
 
-            // Dome Center Hub
             const hubGrad = ctx.createRadialGradient(centerX - 4, centerY - 4, 2, centerX, centerY, centerHubRadius);
             hubGrad.addColorStop(0, '#475569');
             hubGrad.addColorStop(0.5, '#1e293b');
@@ -909,7 +936,7 @@
             toggleButtonsState(true, totalGamesCount);
             copyAllBtn.disabled = true;
             kakaoShareBtn.disabled = true;
-            analysisSection.classList.add('hidden'); // Hide analysis initially
+            analysisSection.classList.add('hidden');
             currentHotNumsSet.clear();
 
             const labels = totalGamesCount === 1 ? ['A'] : ['A', 'B', 'C', 'D', 'E'];
@@ -954,7 +981,6 @@
 
             sound.playFinalFanfare();
 
-            // Analyze Hot (>= 3 times) & Cold (0 times) numbers if 5 games drawn
             if (totalGamesCount === 5) {
                 analyzeHotAndColdNumbers(allPickedGames.map(g => g.numbers));
             }
@@ -971,7 +997,6 @@
                 });
             });
 
-            // 1) Hot Numbers (>= 3 times)
             const hotNums = Object.keys(counts)
                 .filter(num => counts[num] >= 3)
                 .map(Number)
@@ -979,7 +1004,6 @@
 
             currentHotNumsSet = new Set(hotNums);
 
-            // 2) Cold Numbers (0 times appearing out of 1~45)
             const coldNums = [];
             for (let i = 1; i <= 45; i++) {
                 if (!counts[i]) {
@@ -987,11 +1011,9 @@
                 }
             }
 
-            // Update Badges
             document.getElementById('hotCountBadge').textContent = hotNums.length;
             document.getElementById('coldCountBadge').textContent = coldNums.length;
 
-            // Render Hot List
             const hotNumbersList = document.getElementById('hotNumbersList');
             hotNumbersList.innerHTML = '';
             if (hotNums.length > 0) {
@@ -1005,7 +1027,6 @@
                 hotNumbersList.innerHTML = '<span class="text-xs text-gray-500 italic py-1">5개 게임 중 3회 이상 중복 등장한 번호가 없습니다.</span>';
             }
 
-            // Render Cold List
             const coldNumbersList = document.getElementById('coldNumbersList');
             coldNumbersList.innerHTML = '';
             if (coldNums.length > 0) {
@@ -1019,14 +1040,10 @@
                 coldNumbersList.innerHTML = '<span class="text-xs text-gray-500 italic py-1">모든 번호가 최소 1회 이상 출현했습니다.</span>';
             }
 
-            // Apply Neon Highlight to A~E rows for Hot Numbers
             applyNeonHighlightToRows();
-
-            // Show Analysis Section
             analysisSection.classList.remove('hidden');
         }
 
-        // Apply Neon Highlight to Hot Numbers in A~E rows
         function applyNeonHighlightToRows() {
             if (currentHotNumsSet.size === 0) return;
             ['A', 'B', 'C', 'D', 'E'].forEach(label => {
@@ -1072,7 +1089,6 @@
         const toastMessage = document.getElementById('toastMessage');
         const closeToastBtn = document.getElementById('closeToastBtn');
 
-        // Tabs Toggle Logic
         tabHotBtn.addEventListener('click', () => {
             tabHotBtn.classList.add('active-tab');
             tabHotBtn.classList.remove('text-gray-400');
@@ -1171,7 +1187,6 @@
             });
         }
 
-        // Copy All Drawn Games
         copyAllBtn.addEventListener('click', () => {
             const activeLabels = Object.keys(gamesResults);
             if (activeLabels.length === 0) return;
@@ -1191,13 +1206,12 @@
                 }
             }
 
-            text += `\n👉 추첨하기: https://my-lotto.vercel.app/`;
+            text += `\n👉 추첨하기: https://lotto-3d.vercel.app/`;
 
             copyTextToClipboard(text);
             showToastAlert('📋', '번호 전체 복사 완료', '추첨된 번호 결과가 클립보드에 복사되었습니다!\n원하는 곳에 붙여넣기 하세요.');
         });
 
-        // Kakao Share Action
         kakaoShareBtn.addEventListener('click', () => {
             const activeLabels = Object.keys(gamesResults);
             if (activeLabels.length === 0) return;
@@ -1205,7 +1219,7 @@
             const summaryLines = activeLabels.map(l => `${l}: ${gamesResults[l].map(n => n < 10 ? `0${n}` : n).join(', ')}`).join('\n');
             const shareTitle = '🎯 [3D 무료로또추첨기] 행운의 당첨 번호';
             const shareDesc = `${summaryLines}\n\n3D 입체 원판 정밀 스냅으로 추첨되었습니다.`;
-            const shareUrl = 'https://my-lotto.vercel.app/';
+            const shareUrl = 'https://lotto-3d.vercel.app/';
 
             if (isKakaoInitialized) {
                 Kakao.Share.sendDefault({
@@ -1213,7 +1227,7 @@
                     content: {
                         title: shareTitle,
                         description: shareDesc,
-                        imageUrl: 'https://my-lotto.vercel.app/og-image.png',
+                        imageUrl: 'https://lotto-3d.vercel.app/og-image.png',
                         link: { mobileWebUrl: shareUrl, webUrl: shareUrl },
                     },
                     buttons: [{ title: '나도 무료 추첨하기', link: { mobileWebUrl: shareUrl, webUrl: shareUrl } }],
@@ -1225,7 +1239,6 @@
             }
         });
 
-        // Exclude Grid Setup
         function initExcludeGrid() {
             excludeGrid.innerHTML = '';
             for (let i = 1; i <= 45; i++) {
@@ -1265,7 +1278,6 @@
             excludedCountBadge.textContent = `${count}개 제외됨 (추첨가능 ${available}개)`;
         }
 
-        // Quick Presets
         document.getElementById('presetOdds').addEventListener('click', () => {
             if (isDrawingAll) return;
             excludedNumbers.clear();
@@ -1329,7 +1341,6 @@
             }
         }
 
-        // Save History
         function saveHistoryGames(allPickedGames) {
             const history = JSON.parse(localStorage.getItem('lotto_5games_history') || '[]');
             const timeStr = new Date().toLocaleTimeString('ko-KR', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
