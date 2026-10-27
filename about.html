@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>서비스 소개 및 문의 | 3D 5게임 연속 무료로또추첨기</title>
+<meta name="description" content="3D 5게임 연속 무료로또추첨기 소개: 추첨 방식, 주요 기능, 이용 시 유의사항, 문의처">
+<link rel="canonical" href="https://lotto-3d.vercel.app/about.html">
+<meta name="theme-color" content="#080c14">
+<link rel="icon" href="/icon-192.png">
+<style>
+  :root { --bg:#080c14; --card:#0f1626; --line:#243049; --text:#d7deee; --muted:#9aa6c0; --accent:#fcd34d; --link:#a5b4fc; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font-family:'Pretendard',-apple-system,BlinkMacSystemFont,system-ui,'Noto Sans KR',sans-serif; line-height:1.75; font-size:15px; }
+  .wrap { max-width:760px; margin:0 auto; padding:24px 18px 48px; }
+  a { color:var(--link); }
+  .top { display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; font-size:13px; }
+  h1 { font-size:26px; margin:8px 0 6px; color:var(--accent); }
+  h2 { font-size:17px; margin:30px 0 8px; color:#f1f5f9; padding-top:6px; border-top:1px solid var(--line); }
+  p, li { color:var(--text); }
+  .meta { color:var(--muted); font-size:13px; margin:0 0 18px; }
+  .box { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px 16px; margin:12px 0; }
+  ul { padding-left:20px; margin:8px 0; }
+  table { width:100%; border-collapse:collapse; font-size:13.5px; margin:10px 0; display:block; overflow-x:auto; }
+  th, td { border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top; }
+  th { background:var(--card); color:#f1f5f9; white-space:nowrap; }
+  .foot { margin-top:36px; padding-top:16px; border-top:1px solid var(--line); text-align:center; color:var(--muted); font-size:12.5px; }
+  .foot a { margin:0 8px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a href="/">← 로또추첨기로 돌아가기</a><span><a href="/about.html">서비스 소개</a> · <a href="/privacy.html">개인정보처리방침</a></span></div>
+
+  <h1>서비스 소개</h1>
+  <p class="meta">3D 5게임 연속 무료로또추첨기 · https://lotto-3d.vercel.app</p>
+  <p>본 서비스는 로또 6/45 번호를 <strong>재미있게 뽑아볼 수 있는 무료 추첨 도구</strong>입니다. 3D 입체 원판이 회전하며 A~E 5개 게임의 번호를 차례로 보여주고, 추첨 결과를 이해하기 쉽게 정리해 드립니다. 회원가입 없이 누구나 무료로 이용할 수 있습니다.</p>
+
+  <h2>주요 기능</h2>
+  <ul>
+    <li><strong>1게임·5게임 연쇄 추첨</strong>: 한 번에 최대 5개 게임(A~E)을 추첨합니다.</li>
+    <li><strong>제외수 설정</strong>: 뽑고 싶지 않은 번호를 직접 지정하거나 프리셋으로 한 번에 제외할 수 있습니다.</li>
+    <li><strong>중복·미출현 번호 통계</strong>: 5게임 중 3회 이상 중복된 번호와 한 번도 나오지 않은 번호를 보여줍니다. 참고용 통계이며 당첨 가능성과는 무관합니다.</li>
+    <li><strong>최근 회차 당첨번호 표시</strong>: 동행복권이 공개한 가장 최근 회차 번호를 보여주고, 추첨 번호와 겹치는 번호를 표시합니다.</li>
+    <li><strong>추첨 기록·복사·공유</strong>: 최근 추첨 기록을 기기에 보관하고, 결과를 복사하거나 공유할 수 있습니다.</li>
+    <li><strong>홈 화면 추가</strong>: 스마트폰이나 PC의 바로가기로 추가해 앱처럼 열 수 있습니다.</li>
+  </ul>
+
+  <h2>추첨 방식</h2>
+  <p>번호는 브라우저의 암호학적 난수(<code>crypto.getRandomValues</code>)와 편향 없는 셔플 방식으로, 선택 가능한 번호 중 서로 다른 6개를 같은 확률로 추출합니다. 3D 원판이 돌아가는 모습은 이미 결정된 번호를 보여주는 <strong>시각적 연출</strong>이며 번호 결정에는 영향을 주지 않습니다.</p>
+
+  <h2>꼭 알아두세요</h2>
+  <div class="box">
+    <ul style="margin:0">
+      <li>로또 6/45의 1등 당첨 확률은 어떤 번호 조합이든 <strong>1/8,145,060</strong>으로 동일합니다. 본 서비스는 당첨을 보장하거나 확률을 높여주지 않습니다.</li>
+      <li>중복·미출현 번호, 최근 당첨번호와의 일치 표시는 모두 <strong>재미와 참고를 위한 정보</strong>입니다.</li>
+      <li>본 서비스는 복권을 판매하거나 구매를 대행하지 않으며, 동행복권과 제휴하지 않은 <strong>개인 운영 비공식 서비스</strong>입니다. 당첨 여부와 상금은 반드시 공식 채널에서 확인하세요.</li>
+    </ul>
+  </div>
+
+  <h2>건전한 복권 이용을 위해</h2>
+  <ul>
+    <li>복권은 19세 이상만 구매할 수 있으며, 무리하지 않는 범위에서 즐겨 주세요.</li>
+    <li>구매 한도: 판매점 1인 1회 최대 10만 원, 동행복권 인터넷·모바일 구매는 회차당 1인 최대 5천 원입니다. 제도는 바뀔 수 있으니 공식 안내를 확인하세요.</li>
+    <li>도박 문제로 고민된다면 한국도박문제예방치유원 상담전화 <strong>1336</strong>(24시간)에서 도움을 받을 수 있습니다.</li>
+  </ul>
+
+  <h2>문의</h2>
+  <p>오류 제보, 개선 제안, 광고·제휴, 개인정보 관련 문의는 아래 이메일로 보내 주세요.<br>이메일: <a href="mailto:jmovo001@naver.com">jmovo001@naver.com</a></p>
+
+  <div class="foot">
+    <a href="/">홈</a><a href="/about.html">서비스 소개</a><a href="/privacy.html">개인정보처리방침</a><a href="mailto:jmovo001@naver.com">문의하기</a>
+    <p>&copy; 2026 3D 5게임 연속 무료로또추첨기</p>
+  </div>
+</div>
+</body>
+</html>
