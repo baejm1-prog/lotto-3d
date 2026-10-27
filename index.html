@@ -115,13 +115,16 @@
     /* 3D 로또 공 스타일링 */
     .lotto-ball {
       width: 38px;
-      height: 38px;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      flex: 0 1 38px;
+      min-width: 24px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 800;
-      font-size: 0.95rem;
+      font-size: clamp(0.72rem, 3.7vw, 0.95rem);
       color: #ffffff;
       box-shadow: inset -3px -3px 6px rgba(0, 0, 0, 0.45),
                   inset 3px 3px 6px rgba(255, 255, 255, 0.45),
@@ -136,7 +139,8 @@
     @media (min-width: 640px) {
       .lotto-ball {
         width: 44px;
-        height: 44px;
+        height: auto;
+        flex-basis: 44px;
         font-size: 1.1rem;
       }
     }
@@ -1452,12 +1456,12 @@
                 row.className = 'flex items-center justify-between bg-gray-800/40 border border-gray-800/80 rounded-xl p-2.5 transition-all duration-300';
 
                 const labelBadge = document.createElement('div');
-                labelBadge.className = 'w-8 h-8 rounded-lg bg-gray-800 border border-gray-700 flex items-center justify-center font-bold text-sm text-purple-300 shadow-sm';
+                labelBadge.className = 'w-8 h-8 shrink-0 rounded-lg bg-gray-800 border border-gray-700 flex items-center justify-center font-bold text-sm text-purple-300 shadow-sm';
                 labelBadge.textContent = label;
 
                 const ballsContainer = document.createElement('div');
                 ballsContainer.id = `ballsContainer_${label}`;
-                ballsContainer.className = 'flex items-center gap-1.5 sm:gap-2.5 min-h-[44px] justify-end flex-wrap';
+                ballsContainer.className = 'flex items-center gap-1 sm:gap-2.5 min-h-[44px] justify-end flex-nowrap min-w-0';
 
                 const placeholder = document.createElement('span');
                 placeholder.className = 'text-xs text-gray-500 italic px-2';
@@ -1721,7 +1725,7 @@
 
                 item.games.forEach(g => {
                     const row = document.createElement('div');
-                    row.className = 'flex items-center justify-between text-[11px]';
+                    row.className = 'flex items-center justify-between  gap-2 text-[11px]';
 
                     const labelSpan = document.createElement('span');
                     labelSpan.className = 'font-bold text-purple-400 w-4';
