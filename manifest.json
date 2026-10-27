@@ -1,0 +1,15 @@
+{
+  "name": "3D 5게임 연속 무료로또추첨기",
+  "short_name": "로또추첨기",
+  "description": "3D 원판으로 A~E 5게임 로또 번호를 추첨하는 무료 서비스",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#080c14",
+  "theme_color": "#080c14",
+  "lang": "ko",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

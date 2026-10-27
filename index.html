@@ -39,6 +39,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="5게임 무료로또추첨기">
   <link rel="apple-touch-icon" href="https://lotto-3d.vercel.app/icon-192.png">
+  <link rel="manifest" href="/manifest.json">
 
   <!-- 6. Open Graph & Twitter Card 태그 -->
   <meta property="og:type" content="website">
@@ -320,6 +321,14 @@
                 <span class="text-xs text-gray-500 italic">API 데이터 로딩 중...</span>
             </div>
         </section>
+        <div class="flex flex-wrap items-center justify-center gap-2 mt-3">
+            <div id="visitBox" class="hidden inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-900/80 border border-gray-700 text-[11px] text-gray-300" title="같은 브라우저는 하루 1회만 집계됩니다">
+                <span>👥 오늘 <strong id="visitToday" class="text-amber-300 font-mono">-</strong></span>
+                <span class="text-gray-500">|</span>
+                <span>누적 <strong id="visitTotal" class="text-amber-300 font-mono">-</strong></span>
+            </div>
+            <button id="installBtn" type="button" class="hidden px-3 py-1.5 rounded-full bg-indigo-600/90 hover:bg-indigo-500 text-white text-[11px] font-bold border border-indigo-400/50 active:scale-95 transition">📲 홈 화면에 추가</button>
+        </div>
     </header>
 
     <!-- Google AdSense Slot Placeholder #1 -->
@@ -1763,5 +1772,55 @@
             drawRoulette();
         });
     </script>
+<script>
+    // ── 방문자 수 (서버에 저장된 실제 값만 표시, 같은 브라우저는 하루 1회 집계) ──
+    (async function () {
+        const KEY = 'lotto_visit_day';
+        const today = new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10);
+        let counted = false;
+        try { counted = localStorage.getItem(KEY) === today; } catch (e) {}
+        try {
+            const res = await fetch('/api/visits', { method: counted ? 'GET' : 'POST', cache: 'no-store' });
+            if (!res.ok) return;
+            const d = await res.json();
+            if (!d || !d.enabled) return;
+            if (!counted) { try { localStorage.setItem(KEY, today); } catch (e) {} }
+            document.getElementById('visitToday').textContent = Number(d.today).toLocaleString('ko-KR');
+            document.getElementById('visitTotal').textContent = Number(d.total).toLocaleString('ko-KR');
+            document.getElementById('visitBox').classList.remove('hidden');
+        } catch (e) { /* 실패 시 표시하지 않음 */ }
+    })();
+
+    // ── 홈 화면에 추가 (Android/PC Chrome은 설치 창, iOS는 안내) ──
+    (function () {
+        const btn = document.getElementById('installBtn');
+        if (!btn) return;
+        const standalone = (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || navigator.standalone === true;
+        if (standalone) return;
+        const ua = navigator.userAgent;
+        const isIOS = /iphone|ipad|ipod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        let deferred = null;
+        btn.classList.remove('hidden');
+
+        window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); deferred = e; });
+        window.addEventListener('appinstalled', () => { btn.classList.add('hidden'); deferred = null; });
+
+        const tip = (title, msg) => (typeof showToastAlert === 'function') ? showToastAlert('📲', title, msg) : alert(title + '\n' + msg);
+        btn.addEventListener('click', async () => {
+            if (deferred) { deferred.prompt(); try { await deferred.userChoice; } catch (e) {} deferred = null; return; }
+            if (/KAKAOTALK|NAVER\(inapp|FBAN|FBAV|Instagram/i.test(ua)) {
+                tip('다른 브라우저로 열어주세요', '앱 안의 브라우저에서는 설치할 수 없어요.\n메뉴(⋮)에서 "다른 브라우저로 열기" 후 다시 눌러주세요.');
+            } else if (isIOS) {
+                tip('홈 화면에 추가', 'Safari 하단의 공유 버튼(□↑)을 누른 뒤\n"홈 화면에 추가"를 선택해 주세요.');
+            } else {
+                tip('홈 화면에 추가', '브라우저 메뉴(⋮)에서 "홈 화면에 추가" 또는 "앱 설치"를 선택해 주세요.\nPC는 Ctrl+D로 즐겨찾기에 추가할 수 있어요.');
+            }
+        });
+
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js').catch(() => {}));
+        }
+    })();
+</script>
 </body>
 </html>
